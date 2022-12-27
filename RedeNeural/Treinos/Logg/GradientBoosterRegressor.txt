@@ -94,3 +94,54 @@ Higher = 0.367870713032192
 Higher = 0.3745130931158708
     loss = squared_error, learning_rate = 0.1, n_estimators = 150, subsample = 0.9, criterion = squared_error, random_state = 11085,  max_features = None, warm_start = True
 
+Higher = 0.4457688235510634
+    loss = squared_error, learning_rate = 0.1, n_estimators = 50, subsample = 0.1, criterion = squared_error, random_state = 11085,  max_features = log2, warm_start = True
+
+Higher = 0.4632071909048545
+    loss = squared_error, learning_rate = 0.1, n_estimators = 50, subsample = 0.1, criterion = squared_error, random_state = 11085,  max_features = None, warm_start = True
+
+Higher = 0.46371475779443916
+    loss = squared_error, learning_rate = 0.1, n_estimators = 50, subsample = 0.7000000000000001, criterion = squared_error, random_state = 11085,  max_features = None, warm_start = True
+
+Higher = 0.472275651484411
+    loss = squared_error, learning_rate = 0.1, n_estimators = 100, subsample = 0.1, criterion = squared_error, random_state = 11085,  max_features = None, warm_start = True
+
+Higher = 0.47564521687055517
+    loss = squared_error, learning_rate = 0.1, n_estimators = 100, subsample = 0.30000000000000004, criterion = squared_error, random_state = 11085,  max_features = None, warm_start = True
+
+Higher = 0.47634695798909554
+    loss = squared_error, learning_rate = 0.1, n_estimators = 100, subsample = 0.4, criterion = squared_error, random_state = 11085,  max_features = None, warm_start = True
+
+Higher = 0.47948309439722503
+    loss = squared_error, learning_rate = 0.1, n_estimators = 100, subsample = 0.5, criterion = squared_error, random_state = 11085,  max_features = None, warm_start = True
+
+Higher = 0.48145911671229336
+    loss = squared_error, learning_rate = 0.1, n_estimators = 150, subsample = 0.30000000000000004, criterion = squared_error, random_state = 11085,  max_features = None, warm_start = True
+
+Higher = 0.4827888051422107
+    loss = squared_error, learning_rate = 0.1, n_estimators = 150, subsample = 0.4, criterion = squared_error, random_state = 11085,  max_features = 10, warm_start = True
+
+Higher = 0.4847398738441795
+    loss = squared_error, learning_rate = 0.1, n_estimators = 150, subsample = 0.5, criterion = squared_error, random_state = 11085,  max_features = None, warm_start = True
+
+Higher = 0.4853263975705042
+    loss = squared_error, learning_rate = 0.1, n_estimators = 150, subsample = 0.7000000000000001, criterion = squared_error, random_state = 11085,  max_features = None, warm_start = True
+
+Higher = 0.486821534372308
+    loss = squared_error, learning_rate = 0.2, n_estimators = 100, subsample = 0.5, criterion = squared_error, random_state = 11085,  max_features = None, warm_start = True
+
+Higher = 0.48682392163119115
+    loss = squared_error, learning_rate = 0.2, n_estimators = 100, subsample = 0.6, criterion = squared_error, random_state = 11085,  max_features = 10, warm_start = True
+
+Higher = 0.488176574937063
+    loss = squared_error, learning_rate = 0.2, n_estimators = 100, subsample = 0.7000000000000001, criterion = squared_error, random_state = 11085,  max_features = None, warm_start = True
+
+Higher = 0.4950476727589159
+    loss = squared_error, learning_rate = 0.2, n_estimators = 150, subsample = 0.5, criterion = squared_error, random_state = 11085,  max_features = None, warm_start = True
+
+Higher = 0.49553715995726944
+    loss = squared_error, learning_rate = 0.2, n_estimators = 150, subsample = 0.6, criterion = squared_error, random_state = 11085,  max_features = None, warm_start = True
+
+Higher = 0.49718238526479475
+    loss = squared_error, learning_rate = 0.2, n_estimators = 150, subsample = 0.7000000000000001, criterion = squared_error, random_state = 11085,  max_features = None, warm_start = True
+

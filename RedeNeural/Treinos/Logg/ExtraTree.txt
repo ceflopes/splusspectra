@@ -1,0 +1,15 @@
+Higher = 0.4933626061634989
+    n_estimators = 50, criterion = squared_error, min_samples_split = 2, min_samples_leaf = 2, max_features = log2, bootstrap = True, oob_score = True, n_jobs = 1, random_state = 11085, warm_start = True
+
+Higher = 0.49598919825522336
+    n_estimators = 50, criterion = squared_error, min_samples_split = 2, min_samples_leaf = 2, max_features = log2, bootstrap = False, oob_score = False, n_jobs = 1, random_state = 11085, warm_start = True
+
+Higher = 0.5224726665328892
+    n_estimators = 50, criterion = squared_error, min_samples_split = 2, min_samples_leaf = 2, max_features = None, bootstrap = True, oob_score = True, n_jobs = 1, random_state = 11085, warm_start = True
+
+Higher = 0.5226394013029395
+    n_estimators = 50, criterion = squared_error, min_samples_split = 2, min_samples_leaf = 2, max_features = None, bootstrap = False, oob_score = False, n_jobs = 1, random_state = 11085, warm_start = True
+
+Higher = 0.5226394013029396
+    n_estimators = 50, criterion = squared_error, min_samples_split = 2, min_samples_leaf = 2, max_features = 1000, bootstrap = False, oob_score = False, n_jobs = 401, random_state = 11085, warm_start = True
+
