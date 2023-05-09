@@ -1,0 +1,54 @@
+Higher = 0.054261817506746524
+    max_iter = 201, penalty = None, fit_intercept = True, shuffle = True, tol = -inf, random_state = 11085, warm_start = True, learning_rate = "constant", eta0 = 0.0005, average = True
+
+Higher = 0.054282229635409074
+    max_iter = 201, penalty = None, fit_intercept = True, shuffle = False, tol = -inf, random_state = 11085, warm_start = True, learning_rate = "constant", eta0 = 0.0005, average = True
+
+Higher = 0.05774789385523105
+    max_iter = 201, penalty = None, fit_intercept = True, shuffle = False, tol = -inf, random_state = 11085, warm_start = True, learning_rate = "constant", eta0 = 0.0005, average = False
+
+Higher = 0.054261817506746524
+    max_iter = 201, penalty = None, fit_intercept = True, shuffle = True, tol = -inf, random_state = 11085, warm_start = True, learning_rate = "constant", eta0 = 0.0005, average = True
+
+Higher = 0.054282229635409074
+    max_iter = 201, penalty = None, fit_intercept = True, shuffle = False, tol = -inf, random_state = 11085, warm_start = True, learning_rate = "constant", eta0 = 0.0005, average = True
+
+Higher = 0.05774789385523105
+    max_iter = 201, penalty = None, fit_intercept = True, shuffle = False, tol = -inf, random_state = 11085, warm_start = True, learning_rate = "constant", eta0 = 0.0005, average = False
+
+Higher = 0.05841115613463321
+    max_iter = 401, penalty = None, fit_intercept = True, shuffle = True, tol = -inf, random_state = 11085, warm_start = True, learning_rate = "constant", eta0 = 0.0005, average = False
+
+Higher = 0.05851025084802719
+    max_iter = 601, penalty = None, fit_intercept = True, shuffle = True, tol = -inf, random_state = 11085, warm_start = True, learning_rate = "constant", eta0 = 0.0005, average = False
+
+Higher = 0.33671175231535344
+    max_iter = 201, penalty = None, fit_intercept = True, shuffle = True, tol = -inf, random_state = 11085, warm_start = True, learning_rate = "constant", eta0 = 0.0005, average = True
+
+Higher = 0.37134728218384105
+    max_iter = 201, penalty = None, fit_intercept = True, shuffle = True, tol = -inf, random_state = 11085, warm_start = True, learning_rate = "constant", eta0 = 0.0005, average = False
+
+Higher = 0.37144390418529205
+    max_iter = 201, penalty = None, fit_intercept = True, shuffle = False, tol = -inf, random_state = 11085, warm_start = True, learning_rate = "constant", eta0 = 0.0005, average = False
+
+Higher = 0.33671175231535344
+    max_iter = 201, penalty = None, fit_intercept = True, shuffle = True, tol = -inf, random_state = 11085, warm_start = True, learning_rate = "constant", eta0 = 0.0005, average = True
+
+Higher = 0.37134728218384105
+    max_iter = 201, penalty = None, fit_intercept = True, shuffle = True, tol = -inf, random_state = 11085, warm_start = True, learning_rate = "constant", eta0 = 0.0005, average = False
+
+Higher = 0.37144390418529205
+    max_iter = 201, penalty = None, fit_intercept = True, shuffle = False, tol = -inf, random_state = 11085, warm_start = True, learning_rate = "constant", eta0 = 0.0005, average = False
+
+Higher = 0.3730545816552714
+    max_iter = 201, penalty = l1, fit_intercept = True, shuffle = True, tol = -inf, random_state = 11085, warm_start = True, learning_rate = "constant", eta0 = 0.0005, average = False
+
+Higher = 0.37446580984137434
+    max_iter = 401, penalty = l1, fit_intercept = True, shuffle = True, tol = -inf, random_state = 11085, warm_start = True, learning_rate = "constant", eta0 = 0.0005, average = False
+
+Higher = 0.37487323440682085
+    max_iter = 601, penalty = l1, fit_intercept = True, shuffle = False, tol = -inf, random_state = 11085, warm_start = True, learning_rate = "constant", eta0 = 0.0005, average = False
+
+Higher = 0.3751511493053419
+    max_iter = 801, penalty = l1, fit_intercept = True, shuffle = False, tol = -inf, random_state = 11085, warm_start = True, learning_rate = "constant", eta0 = 0.0005, average = False
+

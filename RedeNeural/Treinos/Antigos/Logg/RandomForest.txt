@@ -1,0 +1,27 @@
+Higher = 0.5926016111244008
+    n_estimators = 50, criterion = squared_error, max_depth = None, min_samples_split = 2, min_samples_leaf = 2, max_features = log2, bootstrap = True, oob_score = True, n_jobs = 1, random_state = 11085, warm_start = True
+
+Higher = 0.5926016111244009
+    n_estimators = 50, criterion = squared_error, max_depth = None, min_samples_split = 2, min_samples_leaf = 2, max_features = log2, bootstrap = True, oob_score = True, n_jobs = 401, random_state = 11085, warm_start = True
+
+Higher = 0.6232763100164777
+    n_estimators = 50, criterion = squared_error, max_depth = None, min_samples_split = 2, min_samples_leaf = 2, max_features = log2, bootstrap = False, oob_score = False, n_jobs = 1, random_state = 11085, warm_start = True
+
+Higher = 0.683940100718097
+    n_estimators = 50, criterion = squared_error, max_depth = None, min_samples_split = 2, min_samples_leaf = 2, max_features = None, bootstrap = True, oob_score = True, n_jobs = 1, random_state = 11085, warm_start = True
+
+Higher = 0.5159773494916696
+    n_estimators = 50, criterion = squared_error, max_depth = None, min_samples_split = 2, min_samples_leaf = 2, max_features = log2, bootstrap = True, oob_score = True, n_jobs = 1, random_state = 11085, warm_start = True
+
+Higher = 0.5159773494916697
+    n_estimators = 50, criterion = squared_error, max_depth = None, min_samples_split = 2, min_samples_leaf = 2, max_features = log2, bootstrap = True, oob_score = True, n_jobs = 201, random_state = 11085, warm_start = False
+
+Higher = 0.5494131333049217
+    n_estimators = 50, criterion = squared_error, max_depth = None, min_samples_split = 2, min_samples_leaf = 2, max_features = None, bootstrap = True, oob_score = True, n_jobs = 1, random_state = 11085, warm_start = True
+
+Higher = 0.5522814661880029
+    n_estimators = 50, criterion = squared_error, max_depth = None, min_samples_split = 2, min_samples_leaf = 4, max_features = None, bootstrap = True, oob_score = True, n_jobs = 1, random_state = 11085, warm_start = True
+
+Higher = 0.5526362033065706
+    n_estimators = 50, criterion = squared_error, max_depth = None, min_samples_split = 2, min_samples_leaf = 6, max_features = None, bootstrap = True, oob_score = True, n_jobs = 1, random_state = 11085, warm_start = True
+
