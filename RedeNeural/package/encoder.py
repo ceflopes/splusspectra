@@ -41,6 +41,32 @@ def encode_DataFrame(df : pd.DataFrame, name : str):
             
     return df
 
+
+def encode_Colors(df : pd.DataFrame, name : str):
+    """Encodes columns individually transforming into range (-1, 1).
+
+    Args:
+        df (pd.DataFrame): DataFrame to transform.
+        name (string): DataFrame name.
+    Returns:
+        pd.DataFrame: Transformed DataFrame.
+    """
+    nameC = name+"_colors"
+    if (nameC) not in encoders:
+        encoders[nameC] = preprocessing.MinMaxScaler(feature_range = (-1,1))
+    for column in df.columns:
+        df[column] = encoders[nameC].fit_transform(pd.DataFrame(df[column]))
+
+    return df
+    
+
+def print_encoders():
+    """Print all encoders saved. 
+    """    
+    for name_encoder in encoders:
+        print(name_encoder)
+
+
 def save_encoders():
     """Save encoders fitted so it doesnt need to fit next time. 
     """    
@@ -53,8 +79,8 @@ def load_encoders():
     """    
     onlyfiles = [f for f in listdir('package/encoders') if isfile(join('package/encoders', f))]
     for name_encoder in onlyfiles:
-        encoders[name_encoder] = preprocessing.MinMaxScaler(feature_range = (-1,1))
-        encoders[name_encoder].classes_ = np.load(os.path.join('package/encoders', name_encoder), allow_pickle=True)
+        encoders[name_encoder.replace(".npy", "")] = preprocessing.MinMaxScaler(feature_range = (-1,1))
+        encoders[name_encoder.replace(".npy", "")].classes_ = np.load(os.path.join('package/encoders', name_encoder), allow_pickle=True)
 
     print("Loaded ", len(onlyfiles), "encoders.")
 
