@@ -85,3 +85,23 @@ def load_encoders():
     print("Loaded ", len(onlyfiles), "encoders.")
 
 load_encoders()
+
+
+def cap_outliers(df, column):
+    
+    upper = df[column].mean() + 3*df[column].std()
+    down = df[column].mean() - 3*df[column].std()
+
+    df[(df[column] > upper) | (df[column] < down)]
+
+    df[column] = np.where(
+        df[column]>upper,
+        upper,
+        np.where(
+            df[column]<down,
+            down,
+            df[column]
+        )
+    )
+    
+    return df
