@@ -2,6 +2,7 @@ from sklearn import preprocessing
 import numpy as np
 import pandas as pd
 import os
+import joblib
 
 from os import listdir
 from os.path import isfile, join
@@ -70,8 +71,9 @@ def print_encoders():
 def save_encoders():
     """Save encoders fitted so it doesnt need to fit next time. 
     """    
-    for name_encoder in encoders:
-        np.save(os.path.join('package/encoders', name_encoder), encoders[name_encoder])
+    for name_encoder, encoder in encoders.items():
+        joblib.dump(encoder, os.path.join('package/encoders', name_encoder + '.pkl'))
+
 
 
 def load_encoders():
@@ -79,8 +81,7 @@ def load_encoders():
     """    
     onlyfiles = [f for f in listdir('package/encoders') if isfile(join('package/encoders', f))]
     for name_encoder in onlyfiles:
-        encoders[name_encoder.replace(".npy", "")] = preprocessing.MinMaxScaler(feature_range = (-1,1))
-        encoders[name_encoder.replace(".npy", "")].classes_ = np.load(os.path.join('package/encoders', name_encoder), allow_pickle=True)
+        encoders[name_encoder.replace(".pkl", "")] = joblib.load(os.path.join('package/encoders', name_encoder))
 
     print("Loaded ", len(onlyfiles), "encoders.")
 
