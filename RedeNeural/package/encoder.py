@@ -1,0 +1,61 @@
+from sklearn import preprocessing
+import numpy as np
+import pandas as pd
+import os
+
+from os import listdir
+from os.path import isfile, join
+
+encoders = {}
+
+
+def decode_DataFrame(series : pd.Series, name : str):
+    """Decode DataFrame
+
+    Args:
+        series (pd.Series): pd.series or array to be decoded.
+        name (str): name of DataFrame, to find encoder.
+
+    Returns:
+        pd.Series : decoded column
+    """    
+    if name not in encoders:
+        encoders[name] = preprocessing.MinMaxScaler(feature_range = (-1,1))
+    res = encoders[name].inverse_transform(series)
+    return res
+
+
+##Decoding all char columns
+def encode_DataFrame(df : pd.DataFrame, name : str):
+    """Encodes all dataFrame columns transforming into range (-1, 1).
+
+    Args:
+        df (pd.DataFrame): DataFrame to transform. 
+        name (string): DataFrame name.
+    Returns:
+        pd.DataFrame: Transformed DataFrame.
+    """    
+    if name not in encoders:
+        encoders[name] = preprocessing.MinMaxScaler(feature_range = (-1,1))
+    df = encoders[name].fit_transform(df)
+            
+    return df
+
+def save_encoders():
+    """Save encoders fitted so it doesnt need to fit next time. 
+    """    
+    for name_encoder in encoders:
+        np.save(os.path.join('package/encoders', name_encoder), encoders[name_encoder])
+
+
+def load_encoders():
+    """Load encoders saved. 
+    """    
+    onlyfiles = [f for f in listdir('package/encoders') if isfile(join('package/encoders', f))]
+    for name_encoder in onlyfiles:
+        encoders[name_encoder] = preprocessing.MinMaxScaler(feature_range = (-1,1))
+        encoders[name_encoder].classes_ = np.load(os.path.join('package/encoders', name_encoder), allow_pickle=True)
+
+    print("Loaded ", len(onlyfiles), "encoders.")
+
+load_encoders()
