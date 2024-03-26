@@ -2,69 +2,78 @@ from sklearn import preprocessing
 import numpy as np
 import pandas as pd
 import os
+import joblib
 
 from os import listdir
 from os.path import isfile, join
 
 encoders = {}
 
-def encode_column(series : pd.Series, name : str):
-    """Encode one column
 
-    Args:
-        series (pd.Series): pd.series or array to be encoded.
-        name (str): name of column to be possible to save encoder.
-
-    Returns:
-        pd.Series : encoded columns 
-    """    
-    if name not in encoders:
-        encoders[name] = preprocessing.LabelEncoder()
-    res = encoders[name].fit_transform(series)
-    return res
-
-
-def decode_column(series : pd.Series, name : str):
-    """Decode column
+def decode_DataFrame(series : pd.Series, name : str):
+    """Decode DataFrame
 
     Args:
         series (pd.Series): pd.series or array to be decoded.
-        name (str): name of column, to find encoder.
+        name (str): name of DataFrame, to find encoder.
 
     Returns:
         pd.Series : decoded column
     """    
     if name not in encoders:
-        encoders[name] = preprocessing.LabelEncoder()
+        encoders[name] = preprocessing.MinMaxScaler(feature_range = (-1,1))
     res = encoders[name].inverse_transform(series)
     return res
 
 
 ##Decoding all char columns
-def encode_DataFrame(df : pd.DataFrame):
-    """Encodes all text dataFrame columns transforming them into numeric.
+def encode_DataFrame(df : pd.DataFrame, name : str):
+    """Encodes all dataFrame columns transforming into range (-1, 1).
 
     Args:
         df (pd.DataFrame): DataFrame to transform. 
-
+        name (string): DataFrame name.
     Returns:
         pd.DataFrame: Transformed DataFrame.
     """    
-
-    str_columns = df.select_dtypes(include=[object]).columns
-    for value in str_columns:
-        try:
-            df[value] = encode_column(df[value], value)
-        except:
-            pass
+    if name not in encoders:
+        encoders[name] = preprocessing.MinMaxScaler(feature_range = (-1,1))
+    df = encoders[name].fit_transform(df)
             
     return df
+
+
+def encode_Colors(df : pd.DataFrame, name : str):
+    """Encodes columns individually transforming into range (-1, 1).
+
+    Args:
+        df (pd.DataFrame): DataFrame to transform.
+        name (string): DataFrame name.
+    Returns:
+        pd.DataFrame: Transformed DataFrame.
+    """
+    nameC = name+"_colors"
+    if (nameC) not in encoders:
+        encoders[nameC] = preprocessing.MinMaxScaler(feature_range = (-1,1))
+    for column in df.columns:
+        df[column] = encoders[nameC].fit_transform(pd.DataFrame(df[column]))
+
+    return df
+    
+
+def print_encoders():
+    """Print all encoders saved. 
+    """    
+    for name_encoder in encoders:
+        print(name_encoder)
+
 
 def save_encoders():
     """Save encoders fitted so it doesnt need to fit next time. 
     """    
-    for name_encoder in encoders:
-        np.save(os.path.join('package/encoders', name_encoder), encoders[name_encoder].classes_)
+    for name_encoder, encoder in encoders.items():
+        joblib.dump(encoder, os.path.join('package/encoders', name_encoder + '.pkl'))
+
 
 
 def load_encoders():
@@ -72,9 +81,28 @@ def load_encoders():
     """    
     onlyfiles = [f for f in listdir('package/encoders') if isfile(join('package/encoders', f))]
     for name_encoder in onlyfiles:
-        encoders[name_encoder] = preprocessing.LabelEncoder()
-        encoders[name_encoder].classes_ = np.load(os.path.join('package/encoders', name_encoder), allow_pickle=True)
+        encoders[name_encoder.replace(".pkl", "")] = joblib.load(os.path.join('package/encoders', name_encoder))
 
-    print("Loaded ", len(onlyfiles), "encoders.")\
+    print("Loaded ", len(onlyfiles), "encoders.")
 
 load_encoders()
+
+
+def cap_outliers(df, column):
+    
+    upper = df[column].mean() + 3*df[column].std()
+    down = df[column].mean() - 3*df[column].std()
+
+    df[(df[column] > upper) | (df[column] < down)]
+
+    df[column] = np.where(
+        df[column]>upper,
+        upper,
+        np.where(
+            df[column]<down,
+            down,
+            df[column]
+        )
+    )
+    
+    return df

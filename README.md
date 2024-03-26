@@ -1,4 +1,4 @@
 # splusspectra
 Spectro SPLUS
 
-Analisando e separando objetos com machine learning
+Predizendo abundacias de objetos a partir dos seus espectros nos filtros do S-PLUS
