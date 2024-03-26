@@ -1,3 +1,0 @@
-Higher = 0.35704732563951935
-     splitter = best, max_features = None, random_state = 11085
-
