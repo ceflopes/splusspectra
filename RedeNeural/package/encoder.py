@@ -8,36 +8,55 @@ from os.path import isfile, join
 
 encoders = {}
 
+def encode_column(series : pd.Series, name : str):
+    """Encode one column
 
-def decode_DataFrame(series : pd.Series, name : str):
-    """Decode DataFrame
+    Args:
+        series (pd.Series): pd.series or array to be encoded.
+        name (str): name of column to be possible to save encoder.
+
+    Returns:
+        pd.Series : encoded columns 
+    """    
+    if name not in encoders:
+        encoders[name] = preprocessing.LabelEncoder()
+    res = encoders[name].fit_transform(series)
+    return res
+
+
+def decode_column(series : pd.Series, name : str):
+    """Decode column
 
     Args:
         series (pd.Series): pd.series or array to be decoded.
-        name (str): name of DataFrame, to find encoder.
+        name (str): name of column, to find encoder.
 
     Returns:
         pd.Series : decoded column
     """    
     if name not in encoders:
-        encoders[name] = preprocessing.MinMaxScaler(feature_range = (-1,1))
+        encoders[name] = preprocessing.LabelEncoder()
     res = encoders[name].inverse_transform(series)
     return res
 
 
 ##Decoding all char columns
-def encode_DataFrame(df : pd.DataFrame, name : str):
-    """Encodes all dataFrame columns transforming into range (-1, 1).
+def encode_DataFrame(df : pd.DataFrame):
+    """Encodes all text dataFrame columns transforming them into numeric.
 
     Args:
         df (pd.DataFrame): DataFrame to transform. 
-        name (string): DataFrame name.
+
     Returns:
         pd.DataFrame: Transformed DataFrame.
     """    
-    if name not in encoders:
-        encoders[name] = preprocessing.MinMaxScaler(feature_range = (-1,1))
-    df = encoders[name].fit_transform(df)
+
+    str_columns = df.select_dtypes(include=[object]).columns
+    for value in str_columns:
+        try:
+            df[value] = encode_column(df[value], value)
+        except:
+            pass
             
     return df
 
@@ -45,7 +64,7 @@ def save_encoders():
     """Save encoders fitted so it doesnt need to fit next time. 
     """    
     for name_encoder in encoders:
-        np.save(os.path.join('package/encoders', name_encoder), encoders[name_encoder])
+        np.save(os.path.join('package/encoders', name_encoder), encoders[name_encoder].classes_)
 
 
 def load_encoders():
@@ -53,9 +72,9 @@ def load_encoders():
     """    
     onlyfiles = [f for f in listdir('package/encoders') if isfile(join('package/encoders', f))]
     for name_encoder in onlyfiles:
-        encoders[name_encoder] = preprocessing.MinMaxScaler(feature_range = (-1,1))
+        encoders[name_encoder] = preprocessing.LabelEncoder()
         encoders[name_encoder].classes_ = np.load(os.path.join('package/encoders', name_encoder), allow_pickle=True)
 
-    print("Loaded ", len(onlyfiles), "encoders.")
+    print("Loaded ", len(onlyfiles), "encoders.")\
 
 load_encoders()
